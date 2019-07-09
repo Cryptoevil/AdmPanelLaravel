@@ -7,6 +7,7 @@ use App\Http\Requests\MassDestroyUserRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Role;
+use App\Team;
 use App\User;
 
 class UsersController extends Controller
@@ -26,7 +27,9 @@ class UsersController extends Controller
 
         $roles = Role::all()->pluck('title', 'id');
 
-        return view('admin.users.create', compact('roles'));
+        $teams = Team::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        return view('admin.users.create', compact('roles', 'teams'));
     }
 
     public function store(StoreUserRequest $request)
@@ -45,9 +48,11 @@ class UsersController extends Controller
 
         $roles = Role::all()->pluck('title', 'id');
 
-        $user->load('roles');
+        $teams = Team::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.users.edit', compact('roles', 'user'));
+        $user->load('roles', 'team');
+
+        return view('admin.users.edit', compact('roles', 'teams', 'user'));
     }
 
     public function update(UpdateUserRequest $request, User $user)
@@ -64,7 +69,7 @@ class UsersController extends Controller
     {
         abort_unless(\Gate::allows('user_show'), 403);
 
-        $user->load('roles');
+        $user->load('roles', 'team');
 
         return view('admin.users.show', compact('user'));
     }
