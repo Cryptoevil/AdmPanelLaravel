@@ -10,4 +10,6 @@ Route::group(['prefix' => 'v1', 'as' => 'admin.', 'namespace' => 'Api\V1\Admin']
     Route::apiResource('cards', 'CardsApiController');
 
     Route::apiResource('teams', 'TeamApiController');
+
+    Route::apiResource('sites', 'SitesApiController');
 });

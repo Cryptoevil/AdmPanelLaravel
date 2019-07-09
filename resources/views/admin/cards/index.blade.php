@@ -29,13 +29,16 @@
                             {{ trans('cruds.card.fields.c_cvv') }}
                         </th>
                         <th>
+                            {{ trans('cruds.card.fields.c_cardname') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.card.fields.c_fullname') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.card.fields.c_expmonth') }}
                         </th>
                         <th>
                             {{ trans('cruds.card.fields.c_expyear') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.card.fields.c_fullname') }}
                         </th>
                         <th>
                             {{ trans('cruds.card.fields.c_email') }}
@@ -53,13 +56,13 @@
                             {{ trans('cruds.card.fields.c_zip') }}
                         </th>
                         <th>
-                            {{ trans('cruds.card.fields.c_cardname') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.card.fields.c_sameaddr') }}
                         </th>
                         <th>
                             {{ trans('cruds.card.fields.c_site') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.card.fields.c_status') }}
                         </th>
                         <th>
                             &nbsp;
@@ -79,13 +82,16 @@
                                 {{ $card->c_cvv ?? '' }}
                             </td>
                             <td>
+                                {{ $card->c_cardname ?? '' }}
+                            </td>
+                            <td>
+                                {{ $card->c_fullname ?? '' }}
+                            </td>
+                            <td>
                                 {{ $card->c_expmonth ?? '' }}
                             </td>
                             <td>
                                 {{ $card->c_expyear ?? '' }}
-                            </td>
-                            <td>
-                                {{ $card->c_fullname ?? '' }}
                             </td>
                             <td>
                                 {{ $card->c_email ?? '' }}
@@ -103,13 +109,13 @@
                                 {{ $card->c_zip ?? '' }}
                             </td>
                             <td>
-                                {{ $card->c_cardname ?? '' }}
-                            </td>
-                            <td>
                                 {{ $card->c_sameaddr ?? '' }}
                             </td>
                             <td>
                                 {{ $card->c_site ?? '' }}
+                            </td>
+                            <td>
+                                {{ App\Card::C_STATUS_SELECT[$card->c_status] ?? '' }}
                             </td>
                             <td>
                                 @can('card_show')

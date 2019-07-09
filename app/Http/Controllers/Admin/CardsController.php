@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyCardRequest;
 use App\Http\Requests\StoreCardRequest;
 use App\Http\Requests\UpdateCardRequest;
+use App\Team;
 
 class CardsController extends Controller
 {
@@ -23,7 +24,9 @@ class CardsController extends Controller
     {
         abort_unless(\Gate::allows('card_create'), 403);
 
-        return view('admin.cards.create');
+        $teams = Team::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        return view('admin.cards.create', compact('teams'));
     }
 
     public function store(StoreCardRequest $request)
@@ -39,7 +42,11 @@ class CardsController extends Controller
     {
         abort_unless(\Gate::allows('card_edit'), 403);
 
-        return view('admin.cards.edit', compact('card'));
+        $teams = Team::all()->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $card->load('team');
+
+        return view('admin.cards.edit', compact('teams', 'card'));
     }
 
     public function update(UpdateCardRequest $request, Card $card)
@@ -54,6 +61,8 @@ class CardsController extends Controller
     public function show(Card $card)
     {
         abort_unless(\Gate::allows('card_show'), 403);
+
+        $card->load('team');
 
         return view('admin.cards.show', compact('card'));
     }

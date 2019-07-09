@@ -85,7 +85,7 @@
                     </li>
                 @endcan
                 @can('steal_access')
-                    <li class="nav-item has-treeview {{ request()->is('admin/cards*') ? 'menu-open' : '' }}">
+                    <li class="nav-item has-treeview {{ request()->is('admin/cards*') ? 'menu-open' : '' }} {{ request()->is('admin/sites*') ? 'menu-open' : '' }}">
                         <a class="nav-link nav-dropdown-toggle">
                             <i class="fa-fw fas fa-database">
 
@@ -104,6 +104,18 @@
                                         </i>
                                         <p>
                                             <span>{{ trans('cruds.card.title') }}</span>
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('site_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.sites.index") }}" class="nav-link {{ request()->is('admin/sites') || request()->is('admin/sites/*') ? 'active' : '' }}">
+                                        <i class="fa-fw fas fa-globe-americas">
+
+                                        </i>
+                                        <p>
+                                            <span>{{ trans('cruds.site.title') }}</span>
                                         </p>
                                     </a>
                                 </li>

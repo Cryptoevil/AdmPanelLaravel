@@ -28,6 +28,22 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.card.fields.c_cardname') }}
+                        </th>
+                        <td>
+                            {{ $card->c_cardname }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.card.fields.c_fullname') }}
+                        </th>
+                        <td>
+                            {{ $card->c_fullname }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.card.fields.c_expmonth') }}
                         </th>
                         <td>
@@ -40,14 +56,6 @@
                         </th>
                         <td>
                             {{ $card->c_expyear }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.card.fields.c_fullname') }}
-                        </th>
-                        <td>
-                            {{ $card->c_fullname }}
                         </td>
                     </tr>
                     <tr>
@@ -92,14 +100,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.card.fields.c_cardname') }}
-                        </th>
-                        <td>
-                            {{ $card->c_cardname }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.card.fields.c_sameaddr') }}
                         </th>
                         <td>
@@ -112,6 +112,14 @@
                         </th>
                         <td>
                             {{ $card->c_site }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.card.fields.c_status') }}
+                        </th>
+                        <td>
+                            {{ App\Card::C_STATUS_SELECT[$card->c_status] }}
                         </td>
                     </tr>
                 </tbody>

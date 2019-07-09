@@ -28,4 +28,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('teams/destroy', 'TeamController@massDestroy')->name('teams.massDestroy');
 
     Route::resource('teams', 'TeamController');
+
+    Route::delete('sites/destroy', 'SitesController@massDestroy')->name('sites.massDestroy');
+
+    Route::resource('sites', 'SitesController');
 });
