@@ -10,10 +10,10 @@ class CreateCardsTable extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('c_number');
-            $table->string('c_cvv');
-            $table->string('c_expmonth');
-            $table->string('c_expyear');
+            $table->string('c_number')->nullable();
+            $table->string('c_cvv')->nullable();
+            $table->string('c_expmonth')->nullable();
+            $table->string('c_expyear')->nullable();
             $table->string('c_fullname')->nullable();
             $table->string('c_email')->nullable();
             $table->string('c_address')->nullable();
@@ -23,6 +23,7 @@ class CreateCardsTable extends Migration
             $table->string('c_cardname')->nullable();
             $table->string('c_sameaddr')->nullable();
             $table->string('c_site')->nullable();
+            $table->string('c_status');
             $table->timestamps();
             $table->softDeletes();
         });

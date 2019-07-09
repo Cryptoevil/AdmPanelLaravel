@@ -2,21 +2,25 @@
 
 namespace App\Http\Requests;
 
-use App\Card;
+use App\Site;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCardRequest extends FormRequest
+class UpdateSiteRequest extends FormRequest
 {
     public function authorize()
     {
-        return \Gate::allows('card_edit');
+        return \Gate::allows('site_edit');
     }
 
     public function rules()
     {
         return [
-            'c_status' => [
+            's_url'    => [
                 'required',
+            ],
+            's_status' => [
+                'min:2',
+                'max:4',
             ],
         ];
     }

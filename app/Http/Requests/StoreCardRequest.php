@@ -15,19 +15,11 @@ class StoreCardRequest extends FormRequest
     public function rules()
     {
         return [
-            'c_number'   => [
+            'c_number' => [
                 'min:16',
                 'max:16',
-                'required',
-                'unique:cards',
             ],
-            'c_cvv'      => [
-                'required',
-            ],
-            'c_expmonth' => [
-                'required',
-            ],
-            'c_expyear'  => [
+            'c_status' => [
                 'required',
             ],
         ];

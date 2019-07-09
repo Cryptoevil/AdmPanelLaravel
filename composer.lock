@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "29f2f7e1884ce62acaa0f12a4ffc6832",
+    "content-hash": "5b15b33892cb8294817b8a5c7b4aa3ca",
     "packages": [
         {
             "name": "bugsnag/bugsnag",
@@ -1188,16 +1188,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.8.27",
+            "version": "v5.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f1dccffb96f614895393e27e4667105a05407af5"
+                "reference": "341fb54bea9693cada2a5b8d398621a57f82862d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f1dccffb96f614895393e27e4667105a05407af5",
-                "reference": "f1dccffb96f614895393e27e4667105a05407af5",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/341fb54bea9693cada2a5b8d398621a57f82862d",
+                "reference": "341fb54bea9693cada2a5b8d398621a57f82862d",
                 "shasum": ""
             },
             "require": {
@@ -1331,7 +1331,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-07-02T13:43:47+00:00"
+            "time": "2019-07-09T14:00:02+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -1395,6 +1395,46 @@
                 "psysh"
             ],
             "time": "2018-10-12T19:39:35+00:00"
+        },
+        {
+            "name": "laraveldaily/laravel-charts",
+            "version": "0.1.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelDaily/laravel-charts.git",
+                "reference": "f3b195d255a5a41b61949d4d67da1cc62a5c6694"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelDaily/laravel-charts/zipball/f3b195d255a5a41b61949d4d67da1cc62a5c6694",
+                "reference": "f3b195d255a5a41b61949d4d67da1cc62a5c6694",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelDaily\\LaravelCharts\\LaravelChartsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelDaily\\LaravelCharts\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Povilas Korop",
+                    "email": "povilas@laraveldaily.com"
+                }
+            ],
+            "description": "Create charts and reports from Laravel",
+            "time": "2019-06-22T13:52:54+00:00"
         },
         {
             "name": "league/flysystem",

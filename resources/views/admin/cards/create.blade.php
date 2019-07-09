@@ -10,8 +10,8 @@
         <form action="{{ route("admin.cards.store") }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group {{ $errors->has('c_number') ? 'has-error' : '' }}">
-                <label for="c_number">{{ trans('cruds.card.fields.c_number') }}*</label>
-                <input type="text" id="c_number" name="c_number" class="form-control" value="{{ old('c_number', isset($card) ? $card->c_number : '') }}" required>
+                <label for="c_number">{{ trans('cruds.card.fields.c_number') }}</label>
+                <input type="text" id="c_number" name="c_number" class="form-control" value="{{ old('c_number', isset($card) ? $card->c_number : '') }}">
                 @if($errors->has('c_number'))
                     <p class="help-block">
                         {{ $errors->first('c_number') }}
@@ -22,8 +22,8 @@
                 </p>
             </div>
             <div class="form-group {{ $errors->has('c_cvv') ? 'has-error' : '' }}">
-                <label for="c_cvv">{{ trans('cruds.card.fields.c_cvv') }}*</label>
-                <input type="text" id="c_cvv" name="c_cvv" class="form-control" value="{{ old('c_cvv', isset($card) ? $card->c_cvv : '') }}" required>
+                <label for="c_cvv">{{ trans('cruds.card.fields.c_cvv') }}</label>
+                <input type="text" id="c_cvv" name="c_cvv" class="form-control" value="{{ old('c_cvv', isset($card) ? $card->c_cvv : '') }}">
                 @if($errors->has('c_cvv'))
                     <p class="help-block">
                         {{ $errors->first('c_cvv') }}
@@ -33,28 +33,16 @@
                     {{ trans('cruds.card.fields.c_cvv_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('c_expmonth') ? 'has-error' : '' }}">
-                <label for="c_expmonth">{{ trans('cruds.card.fields.c_expmonth') }}*</label>
-                <input type="text" id="c_expmonth" name="c_expmonth" class="form-control" value="{{ old('c_expmonth', isset($card) ? $card->c_expmonth : '') }}" required>
-                @if($errors->has('c_expmonth'))
+            <div class="form-group {{ $errors->has('c_cardname') ? 'has-error' : '' }}">
+                <label for="c_cardname">{{ trans('cruds.card.fields.c_cardname') }}</label>
+                <input type="text" id="c_cardname" name="c_cardname" class="form-control" value="{{ old('c_cardname', isset($card) ? $card->c_cardname : '') }}">
+                @if($errors->has('c_cardname'))
                     <p class="help-block">
-                        {{ $errors->first('c_expmonth') }}
+                        {{ $errors->first('c_cardname') }}
                     </p>
                 @endif
                 <p class="helper-block">
-                    {{ trans('cruds.card.fields.c_expmonth_helper') }}
-                </p>
-            </div>
-            <div class="form-group {{ $errors->has('c_expyear') ? 'has-error' : '' }}">
-                <label for="c_expyear">{{ trans('cruds.card.fields.c_expyear') }}*</label>
-                <input type="text" id="c_expyear" name="c_expyear" class="form-control" value="{{ old('c_expyear', isset($card) ? $card->c_expyear : '') }}" required>
-                @if($errors->has('c_expyear'))
-                    <p class="help-block">
-                        {{ $errors->first('c_expyear') }}
-                    </p>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.card.fields.c_expyear_helper') }}
+                    {{ trans('cruds.card.fields.c_cardname_helper') }}
                 </p>
             </div>
             <div class="form-group {{ $errors->has('c_fullname') ? 'has-error' : '' }}">
@@ -67,6 +55,30 @@
                 @endif
                 <p class="helper-block">
                     {{ trans('cruds.card.fields.c_fullname_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('c_expmonth') ? 'has-error' : '' }}">
+                <label for="c_expmonth">{{ trans('cruds.card.fields.c_expmonth') }}</label>
+                <input type="text" id="c_expmonth" name="c_expmonth" class="form-control" value="{{ old('c_expmonth', isset($card) ? $card->c_expmonth : '') }}">
+                @if($errors->has('c_expmonth'))
+                    <p class="help-block">
+                        {{ $errors->first('c_expmonth') }}
+                    </p>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.card.fields.c_expmonth_helper') }}
+                </p>
+            </div>
+            <div class="form-group {{ $errors->has('c_expyear') ? 'has-error' : '' }}">
+                <label for="c_expyear">{{ trans('cruds.card.fields.c_expyear') }}</label>
+                <input type="text" id="c_expyear" name="c_expyear" class="form-control" value="{{ old('c_expyear', isset($card) ? $card->c_expyear : '') }}">
+                @if($errors->has('c_expyear'))
+                    <p class="help-block">
+                        {{ $errors->first('c_expyear') }}
+                    </p>
+                @endif
+                <p class="helper-block">
+                    {{ trans('cruds.card.fields.c_expyear_helper') }}
                 </p>
             </div>
             <div class="form-group {{ $errors->has('c_email') ? 'has-error' : '' }}">
@@ -129,18 +141,6 @@
                     {{ trans('cruds.card.fields.c_zip_helper') }}
                 </p>
             </div>
-            <div class="form-group {{ $errors->has('c_cardname') ? 'has-error' : '' }}">
-                <label for="c_cardname">{{ trans('cruds.card.fields.c_cardname') }}</label>
-                <input type="text" id="c_cardname" name="c_cardname" class="form-control" value="{{ old('c_cardname', isset($card) ? $card->c_cardname : '') }}">
-                @if($errors->has('c_cardname'))
-                    <p class="help-block">
-                        {{ $errors->first('c_cardname') }}
-                    </p>
-                @endif
-                <p class="helper-block">
-                    {{ trans('cruds.card.fields.c_cardname_helper') }}
-                </p>
-            </div>
             <div class="form-group {{ $errors->has('c_sameaddr') ? 'has-error' : '' }}">
                 <label for="c_sameaddr">{{ trans('cruds.card.fields.c_sameaddr') }}</label>
                 <input type="text" id="c_sameaddr" name="c_sameaddr" class="form-control" value="{{ old('c_sameaddr', isset($card) ? $card->c_sameaddr : '') }}">
@@ -164,6 +164,33 @@
                 <p class="helper-block">
                     {{ trans('cruds.card.fields.c_site_helper') }}
                 </p>
+            </div>
+            <div class="form-group {{ $errors->has('c_status') ? 'has-error' : '' }}">
+                <label for="c_status">{{ trans('cruds.card.fields.c_status') }}*</label>
+                <select id="c_status" name="c_status" class="form-control" required>
+                    <option value="" disabled {{ old('c_status', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                    @foreach(App\Card::C_STATUS_SELECT as $key => $label)
+                        <option value="{{ $key }}" {{ old('c_status', null) === (string)$key ? 'selected' : '' }}>{{ $label }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('c_status'))
+                    <p class="help-block">
+                        {{ $errors->first('c_status') }}
+                    </p>
+                @endif
+            </div>
+            <div class="form-group {{ $errors->has('team_id') ? 'has-error' : '' }}">
+                <label for="team">{{ trans('cruds.card.fields.team') }}</label>
+                <select name="team_id" id="team" class="form-control select2">
+                    @foreach($teams as $id => $team)
+                        <option value="{{ $id }}" {{ (isset($card) && $card->team ? $card->team->id : old('team_id')) == $id ? 'selected' : '' }}>{{ $team }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('team_id'))
+                    <p class="help-block">
+                        {{ $errors->first('team_id') }}
+                    </p>
+                @endif
             </div>
             <div>
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
