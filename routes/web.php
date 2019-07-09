@@ -24,4 +24,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('cards/destroy', 'CardsController@massDestroy')->name('cards.massDestroy');
 
     Route::resource('cards', 'CardsController');
+
+    Route::delete('teams/destroy', 'TeamController@massDestroy')->name('teams.massDestroy');
+
+    Route::resource('teams', 'TeamController');
 });
